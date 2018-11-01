@@ -1,6 +1,5 @@
 package de.bmw.aw.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +23,6 @@ public class StorageBin {
 	private Integer section;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonManagedReference
 	private Warehouse warehouse;
 
 }

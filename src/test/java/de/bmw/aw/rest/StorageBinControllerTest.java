@@ -1,8 +1,11 @@
 package de.bmw.aw.rest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.bmw.aw.business.StorageBinService;
 import de.bmw.aw.exception.NotFoundEntityException;
 import de.bmw.aw.model.StorageBin;
+import de.bmw.aw.model.Warehouse;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -17,6 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import javax.ws.rs.core.MediaType;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -32,17 +36,26 @@ public class StorageBinControllerTest {
     @MockBean
     private StorageBinService storageBinServiceMock;
 
-    private StorageBin storageBinService =
-            StorageBin.builder()
-                    .id(1L)
-                    .corridor(1)
-                    .rack(10)
-                    .level(2)
-                    .section(11).build();
+    private StorageBin storageBin;
+    private Warehouse warehouse;
+
+
+    @Before
+    public void setUp() {
+        warehouse = Warehouse.builder().id(100L).build();
+        storageBin = StorageBin.builder()
+                .id(1L)
+                .corridor(1)
+                .rack(10)
+                .level(2)
+                .section(11)
+                .warehouse(warehouse)
+                .build();
+    }
 
     @Test
     public void retrieveStorageBin() throws Exception {
-        when(storageBinServiceMock.findStorageBinById(Mockito.anyLong())).thenReturn(storageBinService);
+        when(storageBinServiceMock.findStorageBinById(Mockito.anyLong())).thenReturn(storageBin);
 
         RequestBuilder request =
                 MockMvcRequestBuilders
@@ -72,6 +85,31 @@ public class StorageBinControllerTest {
                         .accept(MediaType.APPLICATION_JSON);
         mockMvc.perform(request)
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void createStorageBin() throws Exception {
+        when(storageBinServiceMock.saveStorageBin(any())).thenReturn(storageBin);
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .post("/storage_bins")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(storageBin));
+        mockMvc.perform(request)
+                .andExpect(status().isCreated());
+    }
+
+    @Test
+    public void updateStorageBin() throws Exception {
+        when(storageBinServiceMock.findStorageBinById(1)).thenReturn(storageBin);
+        when(storageBinServiceMock.saveStorageBin(any())).thenReturn(storageBin);
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .put("/storage_bins/{id}", 1)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(storageBin));
+        mockMvc.perform(request)
+                .andExpect(status().isOk());
     }
 
 

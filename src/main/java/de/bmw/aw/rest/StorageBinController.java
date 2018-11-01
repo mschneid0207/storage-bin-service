@@ -7,6 +7,7 @@ import de.bmw.aw.model.Warehouse;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -39,6 +40,16 @@ public class StorageBinController {
 		
 		return ResponseEntity.created(location).build();
 		
+	}
+
+	@PutMapping("/storage_bins/{id}")
+	@ApiOperation(value = "updates storage bin by id")
+	public ResponseEntity updateStorageBin(@PathVariable int id, @RequestBody StorageBin storageBin) {
+		StorageBin currentStorageBin = service.findStorageBinById(id);
+		storageBin.setId(currentStorageBin.getId());
+		StorageBin updatedStorageBin = service.saveStorageBin(storageBin);
+		return new ResponseEntity<>(updatedStorageBin, HttpStatus.OK);
+
 	}
 	
 	@DeleteMapping("/storage_bins/{id}")
