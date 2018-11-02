@@ -1,4 +1,4 @@
-package de.bmw.aw;
+package de.bmw.aw.storagebinservice;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import java.util.Set;
 public class SwaggerConfig {
 
     private static final Contact DEFAULT_CONTACT = new Contact("Markus Schneider", "", "markus.sn.schneider@bmw.de");
-    private static final ApiInfo DEFAULT = new ApiInfo("Storage bin business", "Listing storage bin operations", "1.0", "", DEFAULT_CONTACT, "", "");
+    private static final ApiInfo DEFAULT = new ApiInfo("Storage bin service", "Listing storage bin service operations", "1.0", "", DEFAULT_CONTACT, "", "");
     private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<String>(Arrays.asList("application/json", "application/xml"));
 //	
 	 @Bean

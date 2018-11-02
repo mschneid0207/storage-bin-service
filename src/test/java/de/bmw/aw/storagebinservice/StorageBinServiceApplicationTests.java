@@ -1,4 +1,4 @@
-package de.bmw.aw;
+package de.bmw.aw.storagebinservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

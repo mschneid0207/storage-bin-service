@@ -1,4 +1,4 @@
-package de.bmw.aw.exception;
+package de.bmw.aw.storagebinservice.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

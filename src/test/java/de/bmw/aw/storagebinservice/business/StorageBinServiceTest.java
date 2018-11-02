@@ -1,8 +1,8 @@
-package de.bmw.aw.business;
+package de.bmw.aw.storagebinservice.business;
 
-import de.bmw.aw.data.StorageBinRepository;
-import de.bmw.aw.exception.NotFoundEntityException;
-import de.bmw.aw.model.StorageBin;
+import de.bmw.aw.storagebinservice.data.StorageBinRepository;
+import de.bmw.aw.storagebinservice.exception.NotFoundEntityException;
+import de.bmw.aw.storagebinservice.model.StorageBin;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

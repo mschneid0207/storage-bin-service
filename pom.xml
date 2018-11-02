@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.bmw.aw</groupId>
-	<artifactId>storage-location-service</artifactId>
+	<artifactId>storage-bin-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>bmw-aw-storage-location-service</name>
-	<description>naming service for BMW automatic warehouse</description>
+	<name>bmw-aw-storage-bin-service</name>
+	<description>BMW storage bin service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

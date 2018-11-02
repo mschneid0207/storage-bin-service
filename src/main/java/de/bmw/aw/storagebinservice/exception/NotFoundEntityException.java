@@ -1,4 +1,4 @@
-package de.bmw.aw.exception;
+package de.bmw.aw.storagebinservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

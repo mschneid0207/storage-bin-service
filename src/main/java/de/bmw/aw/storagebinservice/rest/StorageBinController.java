@@ -1,9 +1,9 @@
-package de.bmw.aw.rest;
+package de.bmw.aw.storagebinservice.rest;
 
-import de.bmw.aw.business.StorageBinService;
-import de.bmw.aw.exception.NotFoundEntityException;
-import de.bmw.aw.model.StorageBin;
-import de.bmw.aw.model.Warehouse;
+import de.bmw.aw.storagebinservice.business.StorageBinService;
+import de.bmw.aw.storagebinservice.exception.NotFoundEntityException;
+import de.bmw.aw.storagebinservice.model.StorageBin;
+import de.bmw.aw.storagebinservice.model.Warehouse;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package de.bmw.aw.data;
+package de.bmw.aw.storagebinservice.data;
 
-import de.bmw.aw.model.Warehouse;
+import de.bmw.aw.storagebinservice.model.Warehouse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

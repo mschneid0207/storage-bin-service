@@ -1,6 +1,6 @@
-package de.bmw.aw.data;
+package de.bmw.aw.storagebinservice.data;
 
-import de.bmw.aw.model.StorageBin;
+import de.bmw.aw.storagebinservice.model.StorageBin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

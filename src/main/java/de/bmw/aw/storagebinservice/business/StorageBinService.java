@@ -1,10 +1,10 @@
-package de.bmw.aw.business;
+package de.bmw.aw.storagebinservice.business;
 
-import de.bmw.aw.data.StorageBinRepository;
-import de.bmw.aw.data.WarehouseRepository;
-import de.bmw.aw.exception.NotFoundEntityException;
-import de.bmw.aw.model.StorageBin;
-import de.bmw.aw.model.Warehouse;
+import de.bmw.aw.storagebinservice.data.StorageBinRepository;
+import de.bmw.aw.storagebinservice.data.WarehouseRepository;
+import de.bmw.aw.storagebinservice.exception.NotFoundEntityException;
+import de.bmw.aw.storagebinservice.model.StorageBin;
+import de.bmw.aw.storagebinservice.model.Warehouse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

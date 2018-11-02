@@ -1,4 +1,4 @@
-package de.bmw.aw.model;
+package de.bmw.aw.storagebinservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
